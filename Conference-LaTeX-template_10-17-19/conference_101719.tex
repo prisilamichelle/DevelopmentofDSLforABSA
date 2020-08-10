@@ -171,7 +171,7 @@ The example of input and final output from the preprocessing steps is displayed 
 \end{figure}
 
 \subsection{Domain-Specific Word Embedding}
-To build a domain-specific word embedding, we used an implementation of sense2vec provided by Explosion AI3. The sense2vec model was trained using word2vec via FastText. To avoid using n-gram, we set the value of the maximum n-gram size parameter to 0. There are two types of word2vec model that we used to build the embedding: CBOW and Skip-gram. For each model, we created word vectors of size 300 and 400.
+To build a domain-specific word embedding, we used an implementation of sense2vec provided by Explosion AI\footnote{sense2vec: https://github.com/explosion/sense2vec}. The sense2vec model was trained using word2vec via FastText. To avoid using n-gram, we set the value of the maximum n-gram size parameter to 0. There are two types of word2vec model that we used to build the embedding: CBOW and Skip-gram. For each model, we created word vectors of size 300 and 400.
 
 \subsection{Domain-Specific Words Extraction}
 At first, we manually labelled every unique word in the preprocessed text into three classes: aspect, opinion, and other (neither an aspect nor an opinion). Then, we used the following approach to choose the words for test data, while the rest of the words were used as the train data:
@@ -233,7 +233,7 @@ dishes$\vert$NOUN&efficient$\vert$ADJ&performance$\vert$NOUN&fantastic$\vert$ADJ
 ingredient\_quality$\vert$NOUN&greatest$\vert$ADJ&quality$\vert$NOUN&decent$\vert$ADJ&aps\_c$\vert$NOUN&big$\vert$ADJ \\
 \hline
 \end{tabular}
-\label{tab2}
+\label{tab3}
 \end{center}
 \end{table*}
 
@@ -246,21 +246,142 @@ In this approach, we clustered the word vectors in train data using K-Means and 
 \section{Experiments}
 
 \subsection{Experiments on Word Classification}
-The experiments on word classification were conducted on three domains: digital camera, handphone, and restaurant. In the word classification task, we aimed to classify each word to aspect, opinion, and other class. The statistics of each domains are listed on Table IV. 
+The experiments on word classification were conducted on three domains: digital camera, handphone, and restaurant. In the word classification task, we aimed to classify each word to aspect, opinion, and other class. The statistics of each domains are listed on Table IV.
+
+\begin{table}[htbp]
+\caption{Word Classification Dataset Statistics}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Domain}&\multicolumn{3}{|c|}{\textbf{Train Data}}&\multicolumn{3}{|c|}{\textbf{Test Data}}\\
+\cline{2-7}
+ & \textbf{\textit{A}}& \textbf{\textit{O}}&\textbf{\textit{X}}& \textbf{\textit{A}}&\textbf{\textit{O}}& \textbf{\textit{X}}\\
+\hline
+Restaurant&9335&2885&2742&428&252&320 \\
+\hline
+Handphone&8701&3009&3231&431&219&350 \\
+\hline
+Digital camera&8057&2540&3122&372&203&425 \\
+\hline
+\multicolumn{7}{l}{$^{\mathrm{a}}$A: Aspect; O: Opinion; X: Other.}\\
+\end{tabular}
+\label{tab4}
+\end{center}
+\end{table}
 
 To evaluate the experiments, we used multiple metrics such as F1 score, accuracy, and Adjusted Rand Index (ARI) The F1 score and accuracy were used as the metrics for the supervised classification while ARI was used as the metric for the unsupervised classification. F1 score was chosen because of the imbalance in the datasets. By using F1 score, we hoped to see whether each class could be classified correctly or not. The results of the experiments are as follows:
 
 \subsubsection{Experiments on Unsupervised Classification with KMeans and K-Medoids}
 The ARI score was computed using the class labels and the predicted labels. The maximum ARI score is one if the clusters between class labels and predicted labels are identical. Table V shows that the resulting ARIs that we obtained are mostly near zero, meaning that our results are almost equal to the results of random clustering. Some of the ARI scores are even lower than zero, less than what is expected from a random result. There are no significant differences between the ARI scores of K-Means and K-Medoids.
 
+\begin{table}[htbp]
+\caption{Experimental Results of Unsupervised Word Classification}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Model}&\textbf{Feature Size}&\textbf{Domain}&\multicolumn{3}{|c|}{\textbf{Train Data}}&\multicolumn{3}{|c|}{\textbf{Test Data}}\\
+\cline{4-9}
+& & & \textbf{\textit{A}}& \textbf{\textit{B}}&\textbf{\textit{C}}& \textbf{\textit{A}}&\textbf{\textit{B}}& \textbf{\textit{C}}\\
+\hline
+CBOW&300&Restaurant&9335&2885&2742&428&252&320 \\
+\hline
+&&Handphone&8701&3009&3231&431&219&350 \\
+\hline
+&&Digital camera&8057&2540&3122&372&203&425 \\
+\hline
+&400&Restaurant&9335&2885&2742&428&252&320 \\
+\hline
+&&Handphone&8701&3009&3231&431&219&350 \\
+\hline
+&&Digital camera&8057&2540&3122&372&203&425 \\
+\hline
+Skip-gram&300&Restaurant&9335&2885&2742&428&252&320 \\
+\hline
+&&Handphone&8701&3009&3231&431&219&350 \\
+\hline
+&&Digital camera&8057&2540&3122&372&203&425 \\
+\hline
+&400&Restaurant&9335&2885&2742&428&252&320 \\
+\hline
+&&Handphone&8701&3009&3231&431&219&350 \\
+\hline
+&&Digital camera&8057&2540&3122&372&203&425 \\
+\hline
+\end{tabular}
+\label{tab4}
+\end{center}
+\end{table}
+
 \subsubsection{Experiments on Supervised Classification with Cosine Similarity}
 Based on the results displayed on Table VI, we could see that other than the classification on the restaurant domain with CBOW model, the accuracies of classification with word vectors of size 300 as the feature are higher than classification with word vectors of size 400. In the restaurant and digital camera domain, the use of Skip-gram model has given us better results than CBOW model, but in the handphone domain the reverse is true. 
 
 \subsubsection{Experiments on Supervised Classification with SVM Classifier}
-In Table VI, we could see that the use of word vector created by CBOW model has given us better results than Skip-gram model. In all experiments other than the experiments in handphone domain by using word vectors created by Skip-gram model, the use of word vectors of size 300 results in better accuracy than using word vectors of size 400. In every domain, the highest accuracies are achieved by using word vectors of size 300 created by CBOW model.  
+In Table VI, we could see that the use of word vector created by CBOW model has given us better results than Skip-gram model. In all experiments other than the experiments in handphone domain by using word vectors created by Skip-gram model, the use of word vectors of size 300 results in better accuracy than using word vectors of size 400. In every domain, the highest accuracies are achieved by using word vectors of size 300 created by CBOW model.
+
+\begin{table*}[htbp]
+\caption{Examples of Domain-Specific Lexicon Created Using Term Frequency}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Restaurant}}&\multicolumn{2}{|c|}{\textbf{Handphone}}&\multicolumn{2}{|c|}{\textbf{Digital Camera}}\\
+\hline
+\multicolumn{2}{|c|}{\textbf{Restaurant}}&\multicolumn{2}{|c|}{\textbf{Handphone}}&\multicolumn{2}{|c|}{\textbf{Digital Camera}}\\
+\hline 
+\textbf{\textit{Aspect}}& \textbf{\textit{Opinion}}&\textbf{\textit{Aspect}}& \textbf{\textit{Opinion}}&\textbf{\textit{Aspect}}& \textbf{\textit{Opinion}}\\
+\hline
+dishes$\vert$NOUN&lovely$\vert$ADJ&display$\vert$NOUN & huge$\vert$ADJ& camera$\vert$NOUN& large$\vert$ADJ\\
+\hline
+restaurant$\vert$NOUN&best$\vert$ADJ&price$\vert$NOUN&very\_good$\vert$ADJ&sensor$\vert$NOUN&fine$\vert$ADJ\\
+\hline
+menu$\vert$NOUN&enjoyed$\vert$VERB&feature$\vert$NOUN&quick$\vert$ADJ&quality$\vert$NOUN&detailed$\vert$ADJ  \\
+\hline
+flavour$\vert$NOUN&delicious$\vert$ADJ&phone$\vert$NOUN&clear$\vert$ADJ&model$\vert$NOUN&quick$\vert$ADJ \\
+\hline
+cooking$\vert$NOUN&good$\vert$ADJ&battery$\vert$NOUN&impressive$\vert$ADJ&lens$\vert$NOUN&excellent$\vert$ADJ \\
+\hline
+dishes$\vert$NOUN&lovely$\vert$ADJ&display$\vert$NOUN & huge$\vert$ADJ& camera$\vert$NOUN& large$\vert$ADJ\\
+\hline
+restaurant$\vert$NOUN&best$\vert$ADJ&price$\vert$NOUN&very\_good$\vert$ADJ&sensor$\vert$NOUN&fine$\vert$ADJ\\
+\hline
+menu$\vert$NOUN&enjoyed$\vert$VERB&feature$\vert$NOUN&quick$\vert$ADJ&quality$\vert$NOUN&detailed$\vert$ADJ  \\
+\hline
+flavour$\vert$NOUN&delicious$\vert$ADJ&phone$\vert$NOUN&clear$\vert$ADJ&model$\vert$NOUN&quick$\vert$ADJ \\
+\hline
+cooking$\vert$NOUN&good$\vert$ADJ&battery$\vert$NOUN&impressive$\vert$ADJ&lens$\vert$NOUN&excellent$\vert$ADJ \\
+\hline
+flavour$\vert$NOUN&delicious$\vert$ADJ&phone$\vert$NOUN&clear$\vert$ADJ&model$\vert$NOUN&quick$\vert$ADJ \\
+\hline
+cooking$\vert$NOUN&good$\vert$ADJ&battery$\vert$NOUN&impressive$\vert$ADJ&lens$\vert$NOUN&excellent$\vert$ADJ \\
+\hline
+\end{tabular}
+\label{tab2}
+\end{center}
+\end{table*}
 
 \subsection{Experiments on Aspect Extraction}
 We evaluated the performance of aspect extraction methods across four datasets, listed on Table VII. Canon G3, Nikon Coolpix 4300, and Nokia 6610 datasets are a part of Customer Review Datasets created by Hu and Liu [16], while ABSA16\_Restaurants\_Train\_SB1 dataset is from SemEval 2016 Task 5: Aspect-Based Sentiment Analysis [17]. We compared the performance of modified Sequential Covering method with the baseline Sequential Covering method.
+
+\begin{table}[htbp]
+\caption{Aspect Extraction Dataset Statistics}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Dataset} & \multicolumn{2}{|c|}{\textbf{Count}}\\
+\cline{2-3}
+&\textbf{Review Sentence} & \textbf{Aspect}\\
+\hline
+Nikon Coolpix 4300&329&188 \\
+\hline
+Canon G3&569&262 \\
+\hline
+Nokia 6610&518&295\\
+\hline
+ABSA16\_Restaurants\_Train\_SB1&1708&1880 \\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
 
 The results of the experiments are as follows:
 \subsubsection{Baseline Sequential Covering without Lexicon}
@@ -269,7 +390,7 @@ On Table VIII, we could see that this method yields very high recall but low pre
 We used the best configurations from the previous experiments to build the domain-specific lexicons that we used in this method. In all of the experiments, we used lexicons of size 1000.
 \paragraph{With Domain-Specific Lexicon Created Using Term Frequency and Cosine Similarity}
 To create the lexicon, we used 50 most frequent words expanded with 20 most similar words for each word. The results on Table VIII shows that this method managed to yield better F1 scores than the baseline method, but the recalls are lower. For Nokia 6610 dataset, this method gives the highest precision and F1 score.
-\paragraph{With domain-specific lexicon created using term frequency only}
+\paragraph{With Domain-Specific Lexicon Created Using Term Frequency Only}
 We used 1000 most frequent words to create the lexicon used in this experiment. On Table VIII, we could see that in every dataset other than the Nokia 6610 dataset, this lexicon gives better results than the lexicon created with the previous approach. Even though the recalls are still lower than the baseline Sequential Covering, the F1 scores from this method are higher than the other methods.
 
 \section{The Cost and Benefit of Using Domain-Specific Lexicon over Aspect and Opinion List}
@@ -284,6 +405,31 @@ There are multiple issues on the domain-specific lexicon and the pretrained word
 The filtering process in Sequential Covering method uses cosine similarity. If a word does not exist in word embedding (OOV) then the similarity returned would be 0, causing the word to be marked as not relevant to the domain. While building the word embedding, the value of minimum count parameter is set to 5, meaning that if a word appears less than 5 times in the dataset, then it would be regarded as a noise.
 
 An aspect could have a very low frequency because of the change of time causing a difference in aspects that are usually discussed in a review. This is especially more apparent in the product review. Nokia 6610, Canon G3, and Nikon Coolpix 4300 dataset were created in 2004, while the data used to build domain-specific lexicon were crawled in 2020. Example of aspects in the Nokia 6610 dataset that are not in the embeddings: ``CSR", ``PIM", and ``PC Suite".
+
+\begin{table*}[htbp]
+\caption{Experimental Results for Aspect Extraction}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Dataset}&\multicolumn{3}{|c|}{\textbf{Sequential Covering}}&\multicolumn{3}{|c|}{\textbf{Modified Sequential}}&\multicolumn{3}{|c|}{\textbf{Modified Sequential}}\\
+&\multicolumn{3}{|c|}{\textbf{without Lexicon}}&\multicolumn{3}{|c|}{\textbf{Covering with}}&\multicolumn{3}{|c|}{\textbf{Covering with}}\\
+&\multicolumn{3}{|c|}{}&\multicolumn{3}{|c|}{\textbf{TF+CS DSL}}&\multicolumn{3}{|c|}{\textbf{TF DSL}}\\
+\cline{2-10} 
+&\textbf{\textit{P}}& \textbf{\textit{R}}&\textbf{\textit{F}}&\textbf{\textit{P}}& \textbf{\textit{R}}&\textbf{\textit{F}}& \textbf{\textit{P}}& \textbf{\textit{R}}&\textbf{\textit{F}}\\
+\hline
+Nikon Coolpix 4300&0.371&\textbf{0.895}&0.525&\textbf{0.609}&0.647&0.628&0.606&0.689&\textbf{0.645} \\
+\hline
+Canon G3&0.311&\textbf{0.877}&0.459&0.508&0.582&0.543&\textbf{0.525}&0.651&\textbf{0.581}\\
+\hline
+Nokia 6610&0.379&\textbf{0.898}&0.533&\textbf{0.618}&0.641&\textbf{0.629}&0.575&0.624&0.598 \\
+\hline
+ABSA16\_Restaurants\_Train\_SB1&0.509&\textbf{0.913}&0.653&0.695&0.621&0.656&\textbf{0.715}&0.695&\textbf{0.705} \\
+\hline
+\multicolumn{10}{l}{$^{\mathrm{a}}$P: Precision; R: Recall; F: F1 Score; TF: Term Frequency; CS: Cosine Similarity; DSL: Domain-Specific Lexicon.}\\
+\end{tabular}
+\label{tab2}
+\end{center}
+\end{table*}
 
 If an aspect is misspelled in the review dataset, the aspect could also have a very low frequency. For example, the word ``canera" exists as an aspect of the Canon G3 dataset. Because it is a misspelling from the word ``camera", there is a very low chance that the word would exist in the word embedding.
 
