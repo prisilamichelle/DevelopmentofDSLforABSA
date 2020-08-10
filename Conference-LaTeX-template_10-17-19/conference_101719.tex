@@ -76,7 +76,7 @@ The system that we used to build domain-specific lexicons is adapted from the wo
 Fig.~\ref{fig2} shows the modified aspect - opinion extraction process. The difference from the original process lies in the aspect-opinion expression extraction. In the modified process, we replaced the aspect and opinion list with domain-specific lexicon. We also replaced the word embedding used for similarity checking between lexicon and the candidate word with our pretrained sense2vec.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.3\textwidth]{fig1.png}}
+\centerline{\includegraphics[width=0.33\textwidth]{fig1.png}}
 \caption{General architecture of the adapted system.}
 \label{fig1}
 \end{figure}
@@ -173,7 +173,7 @@ The example of input and final output from the preprocessing steps is displayed 
 \subsection{Domain-Specific Word Embedding}
 To build a domain-specific word embedding, we used an implementation of sense2vec provided by Explosion AI\footnote{sense2vec: https://github.com/explosion/sense2vec}. The sense2vec model was trained using word2vec via FastText. To avoid using n-gram, we set the value of the maximum n-gram size parameter to 0. There are two types of word2vec model that we used to build the embedding: CBOW and Skip-gram. For each model, we created word vectors of size 300 and 400.
 
-\subsection{Domain-Specific Words Extraction}
+\subsection{Domain-Specific Word Extraction}
 At first, we manually labelled every unique word in the preprocessed text into three classes: aspect, opinion, and other (neither an aspect nor an opinion). Then, we used the following approach to choose the words for test data, while the rest of the words were used as the train data:
 
 \subsubsection{Using Term Frequency Only}
@@ -187,7 +187,7 @@ After separating train and test data, we classified the words in the test data i
 
 \subsubsection{Supervised Approach}
 \paragraph{SVM Classifier with RBF Kernel}
-This classifier was chosen because of its proven ability to produce good results on text classification tasks \cite{b15}. For the feature, we used normalized word vectors.
+In our research, we opted to use shallow learning over deep learning because there is no sequence in our train and test data. Our data consisted of single words only. SVM was chosen over other shallow learning algorithms because of its proven ability to produce good results on text classification tasks \cite{b15}.  As for the feature, we used normalized word vectors.
 
 \begin{table*}[htbp]
 \caption{Examples of Domain-Specific Lexicon Created Using Term Frequency}
