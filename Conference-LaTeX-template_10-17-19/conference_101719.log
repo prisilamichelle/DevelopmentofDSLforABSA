@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  11 AUG 2020 02:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  11 AUG 2020 17:46
 entering extended mode
 **./conference_101719.tex
 (conference_101719.tex
@@ -467,17 +467,17 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 35.
-LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 ("D:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1838) in paragraph at lines 41--43
+Underfull \hbox (badness 1838) in paragraph at lines 42--44
 []\OT1/ptm/b/it/9 Index Terms\OT1/ptm/b/n/9 ---domain-specific lex-i-con, as-pe
 ct ex-trac-tion,
  []
@@ -492,28 +492,28 @@ Missing character: There is no ™ in font ptmr7t!
 <fig1.png, id=9, 410.53375pt x 574.145pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 79.
+Package pdftex.def Info: fig1.png  used on input line 80.
 (pdftex.def)             Requested size: 167.50795pt x 234.26207pt.
 <fig2.jpg, id=11, 869.2475pt x 669.50125pt>
 File: fig2.jpg Graphic file (type jpg)
 <use fig2.jpg>
-Package pdftex.def Info: fig2.jpg  used on input line 85.
+Package pdftex.def Info: fig2.jpg  used on input line 86.
 (pdftex.def)             Requested size: 228.41713pt x 175.92548pt.
  [2 <./fig1.png> <./fig2.jpg>]
 <fig3.png, id=17, 244.0755pt x 46.9755pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 122.
+Package pdftex.def Info: fig3.png  used on input line 123.
 (pdftex.def)             Requested size: 238.57124pt x 45.9181pt.
 <fig4.jpg, id=18, 1145.02782pt x 216.05719pt>
 File: fig4.jpg Graphic file (type jpg)
 <use fig4.jpg>
-Package pdftex.def Info: fig4.jpg  used on input line 162.
+Package pdftex.def Info: fig4.jpg  used on input line 163.
 (pdftex.def)             Requested size: 238.57124pt x 45.01399pt.
 <fig5.jpg, id=19, 665.48625pt x 171.64125pt>
 File: fig5.jpg Graphic file (type jpg)
 <use fig5.jpg>
-Package pdftex.def Info: fig5.jpg  used on input line 168.
+Package pdftex.def Info: fig5.jpg  used on input line 169.
 (pdftex.def)             Requested size: 238.57124pt x 61.53151pt.
  [3 <./fig3.png> <./fig4.jpg> <./fig5.jpg>]
 Underfull \vbox (badness 2150) has occurred while \output is active []
@@ -611,7 +611,7 @@ Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/times/utmbi8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on conference_101719.pdf (6 pages, 310353 bytes).
+Output written on conference_101719.pdf (6 pages, 310397 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
