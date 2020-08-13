@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  11 AUG 2020 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  14 AUG 2020 00:48
 entering extended mode
 **./conference_101719.tex
 (conference_101719.tex
@@ -597,11 +597,11 @@ Before submitting the final camera ready copy, remember to:
 
 [6] (conference_101719.aux) ) 
 Here is how much of TeX's memory you used:
- 4899 strings out of 493305
- 71026 string characters out of 3138878
+ 4898 strings out of 493305
+ 71019 string characters out of 3138878
  171075 words of memory out of 3000000
  8366 multiletter control sequences out of 15000+200000
- 48874 words of font info for 103 fonts, out of 3000000 for 9000
+ 47738 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,35p,1440b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/
@@ -611,7 +611,7 @@ Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/times/utmbi8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on conference_101719.pdf (6 pages, 310397 bytes).
+Output written on conference_101719.pdf (6 pages, 310635 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
