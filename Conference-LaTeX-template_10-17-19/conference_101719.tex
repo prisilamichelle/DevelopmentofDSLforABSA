@@ -33,6 +33,9 @@ Bandung, Indonesia\\
 \IEEEauthorrefmark{2}fariska@informatika.org,
 \IEEEauthorrefmark{3}ayu@informatika.org}}
 
+\IEEEoverridecommandlockouts
+\IEEEpubid{978-1-7281-8038-0/20/$31.00 ̃\copyright ̃2020 IEEE$}
+
 \maketitle
 
 \begin{abstract}
@@ -50,7 +53,7 @@ Sentiment analysis, also called opinion mining, is the field of study that analy
 
 The two main subtasks of ABSA are aspect term extraction and polarity identification. In the aspect extraction task, we aim to extract the aspect/opinion target/feature/topic from the review text. For example, in the sentence ``The screen is so vivid," ``screen" would be extracted as the aspect. 
 
-One of the examples of aspect extraction method is the Sequential Covering algorithm by Ruskanda et al. \cite{b2}, which is a variation of language rule-based method. In the said method, a list of aspects and opinion words from the annotated review datasets are used to aid the process of extracting aspect and opinion expressions. By calculating the similarity value between each extracted word with words in the list and using the value to select words that are above a certain bound, the precision of the extraction process was able to be significantly improved.
+One of the examples of aspect extraction method is the Sequential Covering algorithm by Ruskanda et al. \cite{b2}, which is a variation of language rule-based method. In the said method, a list of aspects and opinion words from the annotated review datasets are used to aid the process of extracting aspect and opinion expressions. By calculating the similarities between each extracted word with words in the list and using them to select words that are above a certain bound, the precision of the extraction process was able to be significantly improved.
 
 However, there is a downside to the Sequential Covering method.  If the reviews are not yet annotated, we would have to manually annotate the aspect and opinion of each review, costing a significant amount of time and effort. To tackle this downside, we propose a way to automatically build aspect and opinion list by using word embedding. We also expand the scope of the aspect and opinion list to a larger domain.
 
@@ -59,11 +62,13 @@ In our work, we called the aspect and opinion list as domain-specific lexicon be
 The rest of the paper is organized as follows: Section two discusses the works related to our research, sections three and four discuss the detail of the development and usage of domain-specific lexicons, while sections five and six discuss the experiments and results of the experiments. The final section discusses the conclusion. 
 
 \section{Related Work}
-The term ``domain-specific lexicon" has been used in natural language processing and information access research to describe a lexicon consisting of terms pertaining to a given domain or discipline \cite{b3}. Because the manual generation of domain-specific lexicon is expensive, researchers are developing ways to build domain-specific lexicons automatically. 
+The term ``domain-specific lexicon" has been used in natural language processing and information access research to describe a lexicon consisting of terms pertaining to a given domain or discipline \cite{b3}. Because the manual generation of domain-specific lexicon is expensive, researchers are developing ways to build domain-specific lexicons automatically.
+
+\IEEEpubidadjcol
 
 There are several fields of research that are related with the development of domain-specific lexicon: research in automatic domain-specific term extraction \cite{b3}, \cite{b4}, \cite{b5}, \cite{b6}, domain-specific sentiment lexicon induction \cite{b7}, \cite{b8}, and specialized dictionary development \cite{b9}. The first field of research focuses on the automatic domain-specific term extraction, which is a categorization or classification task in which a term would be categorized into a previously determined domain \cite{b4}. This task could be done in unsupervised \cite{b3}, \cite{b4}, \cite{b5} or supervised way \cite{b6}. The resulting lexicon in this kind of research is usually only consisted of noun terms.
 
-The second field of research related to our work is research about domain-specific sentiment lexicon induction, in which the lexicons are created with the intention to be used in ABSA. This is aligned with our intention of use, but there is an important difference: domain-specific sentiment lexicon is used in the polarity identification step while our domain-specific lexicon is used in the aspect extraction step. Because it is a type of sentiment lexicon, the lexicon is usually only consisted of opinions.
+The second field of research related to our work is research about domain-specific sentiment lexicon induction, in which the lexicons are created to be used in ABSA. This is aligned with our intention of use, but there is an important difference: domain-specific sentiment lexicon is used in the polarity identification step while our domain-specific lexicon is used in the aspect extraction step. Because it is a type of sentiment lexicon, the lexicon is usually only consisted of opinions.
 
 The final field of research related to our work is about the development of specialized dictionary. As described in the work of Grefenstette and Muchemi \cite{b9}, specialized dictionary is a lexicon containing domain-specific words that can be used to understand the concepts of a domain. To build specialized dictionary, Grefenstette and Muchemi used word embedding that is trained on domain-specific corpora. The end results of specialized dictionary development are quite alike with what we have in mind, therefore we used the adaptation of this approach in our implementation.
 
@@ -149,10 +154,10 @@ The adjective is an ordinal number&first, second, third\\
 \end{table}
 
 \paragraph{Merge Named Entities}
-The types of named entities that would be merged are name, location, time, number, and money.
+We merged named entities of type name, location, time, number, and money.
 
 \paragraph{Merge Adjective Phrase}
-To extract adjective phrase, we used the textacy library which is an extension of spaCy. The extraction is done using the rule described in Fig.~\ref{fig4}. The meaning of the pattern is: Find an adjective token, can be followed by an adverb token or not, which is followed by another adjective token and can be followed by another adverb token or not.
+To extract adjective phrase, we used the textacy library which is an extension of spaCy. The extraction was done using the pattern described in Fig.~\ref{fig4}., which means: Find an adjective token, can be followed by an adverb token or not, which is followed by another adjective token and can be followed by another adverb token or not.
 
 \subsubsection{Cleaning a Sentence}
 After the preprocessing steps were done, we proceeded to clean each sentence by removing stopwords, URLs, and named entities.
@@ -172,7 +177,7 @@ The example of input and final output from the preprocessing steps is displayed 
 \end{figure}
 
 \subsection{Domain-Specific Word Embedding}
-To build a domain-specific word embedding, we used an implementation of sense2vec provided by Explosion AI\footnote{sense2vec: https://github.com/explosion/sense2vec}. The sense2vec model was trained using word2vec via FastText. To avoid using n-gram, we set the value of the maximum n-gram size parameter to 0. There are two types of word2vec model that we used to build the embedding: CBOW and Skip-gram. For each model, we created word vectors of size 300 and 400.
+To build the embedding, we used an implementation of sense2vec provided by Explosion AI\footnote{sense2vec: https://github.com/explosion/sense2vec}. The sense2vec model was trained using word2vec via FastText. To avoid using n-gram, we set the value of the maximum n-gram size parameter to 0. There are two types of word2vec model that we used to build the embedding: CBOW and Skip-gram. For each model, we created word vectors of size 300 and 400.
 
 \subsection{Domain-Specific Word Extraction}
 At first, we manually labelled every unique word in the preprocessed text into three classes: aspect, opinion, and other (neither an aspect nor an opinion). Then, we used the following approach to choose the words for test data, while the rest of the words were used as the train data:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  14 AUG 2020 00:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2020.8.9)  16 AUG 2020 13:36
 entering extended mode
 **./conference_101719.tex
 (conference_101719.tex
@@ -467,17 +467,18 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 36.
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+** ATTENTION: Overriding command lockouts (line 36).
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 ("D:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1838) in paragraph at lines 42--44
+Underfull \hbox (badness 1838) in paragraph at lines 45--47
 []\OT1/ptm/b/it/9 Index Terms\OT1/ptm/b/n/9 ---domain-specific lex-i-con, as-pe
 ct ex-trac-tion,
  []
@@ -485,37 +486,46 @@ ct ex-trac-tion,
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-[1{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 70.
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Missing character: There is no Ì in font cmr8!
+Missing character: There is no ƒ in font cmr8!
+Missing character: There is no Ì in font cmr8!
+Missing character: There is no ƒ in font cmr8!
+ [1{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-<fig1.png, id=9, 410.53375pt x 574.145pt>
+<fig1.png, id=11, 410.53375pt x 574.145pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 80.
+Package pdftex.def Info: fig1.png  used on input line 85.
 (pdftex.def)             Requested size: 167.50795pt x 234.26207pt.
-<fig2.jpg, id=11, 869.2475pt x 669.50125pt>
+<fig2.jpg, id=13, 869.2475pt x 669.50125pt>
 File: fig2.jpg Graphic file (type jpg)
 <use fig2.jpg>
-Package pdftex.def Info: fig2.jpg  used on input line 86.
+Package pdftex.def Info: fig2.jpg  used on input line 91.
 (pdftex.def)             Requested size: 228.41713pt x 175.92548pt.
  [2 <./fig1.png> <./fig2.jpg>]
-<fig3.png, id=17, 244.0755pt x 46.9755pt>
+<fig3.png, id=19, 244.0755pt x 46.9755pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 123.
+Package pdftex.def Info: fig3.png  used on input line 128.
 (pdftex.def)             Requested size: 238.57124pt x 45.9181pt.
-<fig4.jpg, id=18, 1145.02782pt x 216.05719pt>
+<fig4.jpg, id=20, 1205.2528pt x 182.18062pt>
 File: fig4.jpg Graphic file (type jpg)
 <use fig4.jpg>
-Package pdftex.def Info: fig4.jpg  used on input line 163.
-(pdftex.def)             Requested size: 238.57124pt x 45.01399pt.
-<fig5.jpg, id=19, 665.48625pt x 171.64125pt>
+Package pdftex.def Info: fig4.jpg  used on input line 168.
+(pdftex.def)             Requested size: 238.57124pt x 36.0602pt.
+<fig5.jpg, id=21, 665.48625pt x 171.64125pt>
 File: fig5.jpg Graphic file (type jpg)
 <use fig5.jpg>
-Package pdftex.def Info: fig5.jpg  used on input line 169.
+Package pdftex.def Info: fig5.jpg  used on input line 174.
 (pdftex.def)             Requested size: 238.57124pt x 61.53151pt.
- [3 <./fig3.png> <./fig4.jpg> <./fig5.jpg>]
+
+[3 <./fig3.png> <./fig4.jpg> <./fig5.jpg>]
 Underfull \vbox (badness 2150) has occurred while \output is active []
 
  [4]
@@ -595,25 +605,30 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (conference_101719.aux) ) 
+[6] (conference_101719.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4898 strings out of 493305
- 71019 string characters out of 3138878
+ 4923 strings out of 493305
+ 71381 string characters out of 3138878
  171075 words of memory out of 3000000
- 8366 multiletter control sequences out of 15000+200000
- 47738 words of font info for 102 fonts, out of 3000000 for 9000
+ 8387 multiletter control sequences out of 15000+200000
+ 48680 words of font info for 105 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,35p,1440b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/
-8r.enc}<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/Program 
-Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/
-fonts/type1/urw/times/utmbi8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
->
-Output written on conference_101719.pdf (6 pages, 310635 bytes).
+{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<D:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.
+pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><D:/Program 
+Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/MiKTeX 2.9/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_101719.pdf (6 pages, 364351 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
